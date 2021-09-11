@@ -26,7 +26,7 @@
 
                 <p class="font-bold fs-3">Still not vaccinated?</p>
 
-                <a href="#" class="btn btn-lg rounded-full btn-dark">Register now</a>
+                <a href="#" class="btn btn-lg rounded-full btn-dark">{{ __('Register now') }}</a>
             </div>
         </div>
         <div class="col-md-4 mt-5">
