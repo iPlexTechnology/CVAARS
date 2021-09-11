@@ -33,23 +33,23 @@
             </ul>
             <ul class="navbar-nav" style="font-weight: bolder; color: black">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">සිංහල</a>
+                    <a class="nav-link" href="{{ route(Route::currentRouteName(), 'si') }}">සිංහල</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">/</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">தமிழ்</a>
+                    <a class="nav-link" href="{{ route(Route::currentRouteName(), 'ta') }}">தமிழ்</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">/</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">English</a>
+                    <a class="nav-link active" href="{{ route(Route::currentRouteName(), 'en') }}">English</a>
                 </li>
             </ul>
             <div class="d-flex ms-4">
-                <a href="http://" class="btn btn-outline-dark rounded-full px-3">Sign in</a>
+                <a href="http://" class="btn btn-outline-dark rounded-full px-3">{{ __('Login') }}</a>
             </div>
         </div>
     </div>

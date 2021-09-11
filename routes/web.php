@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::redirect('/', '/en');
+
+Route::group(['prefix' => '{language}'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('welcome');
 });
 
 Route::view('home', 'home')->middleware('auth');
