@@ -23,7 +23,7 @@
     <link href="{{ asset('css/tailwind/tailwind_utilities.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @livewireStyles()
 </head>
 
 <body style="font-family: 'Nunito', sans-serif; background: @yield('bg_color', 'white')">
@@ -38,6 +38,7 @@
     </div>
     <!-- MDB -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    @livewireScripts()
 </body>
 
 </html>
