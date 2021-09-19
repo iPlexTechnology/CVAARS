@@ -3,14 +3,14 @@
         @include('components.error_message')
         @csrf
         <div class="col-md-6">
-            <label for="fname" class="form-label font-bold">{{ __('First Name') }}</label>
-            <input type="text" wire:model="fname" class="form-control rounded-full" max="50" maxlength="50" id="fname"
-                required>
+            <label for="first_name" class="form-label font-bold">{{ __('First Name') }}</label>
+            <input type="text" wire:model="first_name" class="form-control rounded-full" max="50" maxlength="50"
+                id="first_name" required>
         </div>
         <div class="col-md-6">
-            <label for="lname" class="form-label font-bold">{{ __('Last Name') }}</label>
-            <input type="text" wire:model="lname" class="form-control rounded-full" max="50" maxlength="50" id="lname"
-                required>
+            <label for="last_name" class="form-label font-bold">{{ __('Last Name') }}</label>
+            <input type="text" wire:model="last_name" class="form-control rounded-full" max="50" maxlength="50"
+                id="last_name" required>
         </div>
         <div class="col-md-7">
             <label for="nic" class="form-label font-bold">{{ __('NIC no') }}</label>
@@ -37,23 +37,26 @@
         </div>
         <div class="col-md-6">
             <label for="province" class="form-label font-bold">{{ __('Province') }}</label>
-            <select class="form-select rounded-full" id="province" required>
+            <select wire:model="province" class="form-select rounded-full" id="province" required>
                 <option value="{{ null }}" selected>--{{ __('Select a province') }}--</option>
                 <option value="Central Province">{{ __('Central Province') }}</option>
                 <option value="Eastern Province">{{ __('Eastern Province') }}</option>
                 <option value="Northern Province">{{ __('Northern Province') }}</option>
                 <option value="Southern Province">{{ __('Southern Province') }}</option>
-                <option value="Western Province ">{{ __('Western Province') }}</option>
-                <option value="North Western Province ">{{ __('North Western Province') }}</option>
-                <option value="North Central Province ">{{ __('North Central Province') }}</option>
-                <option value="Uva Province ">{{ __('Uva Province') }}</option>
-                <option value="Sabaragamuwa Province ">{{ __('Sabaragamuwa Province') }}</option>
+                <option value="Western Province">{{ __('Western Province') }}</option>
+                <option value="North Western Province">{{ __('North Western Province') }}</option>
+                <option value="North Central Province">{{ __('North Central Province') }}</option>
+                <option value="Uva Province">{{ __('Uva Province') }}</option>
+                <option value="Sabaragamuwa Province">{{ __('Sabaragamuwa Province') }}</option>
             </select>
         </div>
         <div class="col-md-6">
             <label for="district" class="form-label font-bold">{{ __('District') }}</label>
-            <select class="form-select rounded-full" id="district">
-                <option value="{{ null }}" selected>--{{ __('Select a district') }}--</option>
+            <select wire:model="district" class="form-select rounded-full" id="district" required>
+                <option value="{{ null }}">--{{ __('Select a district') }}--</option>
+                @foreach ($provinces as $province)
+                <option value={{ $province }}>{{ __($province) }}</option>
+                @endforeach
             </select>
         </div>
 
