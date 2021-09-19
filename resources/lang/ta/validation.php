@@ -135,9 +135,9 @@ return [
     |
     */
 
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+    'custom'               => [
+        'birthday' => [
+            'before' => 'The birthday must be a date before today.',
         ],
     ],
 
@@ -152,6 +152,47 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes'           => [
+        'address'               => 'ලිපිනය',
+        'age'                   => 'වයස',
+        'available'             => 'ලබා ගත හැකිය',
+        'body'                  => 'අංගය',
+        'city'                  => 'නගරය',
+        'content'               => 'අන්තර්ගතය',
+        'country'               => 'රට',
+        'date'                  => 'දිනය',
+        'day'                   => 'දවස',
+        'description'           => 'විස්තර',
+        'email'                 => 'ඊ-මේල් ලිපිනය',
+        'excerpt'               => 'උපුටා ගත් පද',
+        'first_name'            => 'මුල් නම',
+        'gender'                => 'ස්ත්රී පුරුෂ භාවය',
+        'hour'                  => 'පැය',
+        'last_name'             => 'අවසන් නම',
+        'message'               => 'පණිවුඩය',
+        'minute'                => 'විනාඩියක්',
+        'mobile'                => 'ජංගම දුරකථන',
+        'month'                 => 'මාසය',
+        'name'                  => 'නම',
+        'password'              => 'රහස් පදය',
+        'password_confirmation' => 'මුරපදය තහවුරු කිරීම',
+        'phone'                 => 'දුරකතන අංකය',
+        'second'                => 'දෙවැනි',
+        'sex'                   => 'ස්ත්රී පුරුෂ භාවය',
+        'size'                  => 'ප්රමාණය',
+        'subject'               => 'විෂය',
+        'time'                  => 'වේලාව',
+        'title'                 => 'ශීර්ෂය',
+        'username'              => 'පරිශීලක නාමය',
+        'year'                  => 'වර්ෂය',
+        'First Name'            => 'මුල් නම',
+        'Last Name'             => 'අවසන් නම',
+        'NIC no'                => 'ජා.හැ.ප. අංකය',
+        'province'              => 'පලාත',
+        'district'              => 'දිස්ත්‍රික්කය',
+        'birthday'              => 'උපන්දිනය',
+        'nic'                   => 'ජා.හැ.ප. අංකය',
+        'NIC no'                => 'ජා.හැ.ප. අංකය',
+    ],
 
 ];
