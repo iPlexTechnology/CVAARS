@@ -8,35 +8,40 @@
 
 
 @section('content')
-<div class="container main-center">
+<div class="container">
 
     <div class="row w-100 mt-5">
+        @if($registration_form_auth ?? false)
+        @livewire('register-for-vaccine')
+        @else
         <div class="col-md-8">
             <center>
                 <img src="{{ asset('img/logo.png') }}" alt="CVAARS logo" class="pt-5" style="width: 70%">
             </center>
 
+            <div class="text-center mx-auto mt-4">
 
+                <p class="fs-5 fw-500">
+                    {{ __('The nation’s top health care organizations agree COVID 19 vaccines are safe and effective') }}
+                </p>
 
-            <div class="text-center w-75 mx-auto mt-4">
+                <p class="font-bold fs-3">{{ __('Still not vaccinated?') }}</p>
 
-                <p class="fs-5 fw-500">The nation’s top health care organizations agree
-                    COVID 19 vaccines are safe and effective</p>
-
-
-                <p class="font-bold fs-3">Still not vaccinated?</p>
-
-                <a href="#" class="btn btn-lg rounded-full btn-dark">{{ __('Register now') }}</a>
+                <a href="{{ route('register_for_vaccination.create', app()->getLocale()) }}"
+                    class="btn btn-lg rounded-full btn-dark">{{ __('Register now') }}</a>
             </div>
         </div>
+        @endif
+        {{-- <div class="col-md-2"></div> --}}
         <div class="col-md-4 mt-5">
             <div class="bg-white rounded-2xl p-3" style="width: auto; height: 27rem">
-                <p class="text-pink-600 fs-5 font-bold">Current Vaccination updates</p>
+                <p class="text-pink-600 fs-5 font-bold">{{ __('Current Vaccination updates') }}</p>
             </div>
-            <div class="mt-2 clearfix">
-                <a href="#" class="btn btn-sm btn-outline-dark rounded-full float-end">See full vaccination plan</a>
+            <div class="mt-2 mb-1 clearfix">
+                <a href="#"
+                    class="btn btn-sm btn-outline-dark rounded-full float-end">{{ __('See full vaccination plan') }}</a>
             </div>
-            <p class="text-dark font-bold text-right mb-0">total vaccinated count</p>
+            <p class="text-dark font-bold text-right mb-0">{{ __('total vaccinated count') }}</p>
             <p class="text-red-600 fs-1 font-bold text-right">10,234,132</p>
         </div>
     </div>
@@ -45,7 +50,7 @@
 </div>
 
 {{-- Footer start --}}
-<nav class="navbar navbar-expand-lg navbar-dark fixed-bottom">
+{{-- <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom">
     <div class="container">
         <div class="row w-100">
             <div class="col-lg-2">
@@ -75,6 +80,6 @@
 
         </div>
     </div>
-</nav>
+</nav> --}}
 {{-- Footer end --}}
 @endsection

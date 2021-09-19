@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitizenRecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('welcome');
+    Route::resource('/register_for_vaccination', CitizenRecordController::class);
 });
 
 Route::view('home', 'home')->middleware('auth');
