@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/en');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::view('home', 'home');
+    Route::view('home', 'home')->name('home');
 });
 
 Route::group(['prefix' => '{language}'], function () {

@@ -27,11 +27,9 @@
     @livewireStyles()
 </head>
 
-<body style="font-family: 'Nunito', sans-serif; background: @yield('bg_color', 'white')">
+<body style="font-family: 'Nunito', sans-serif; background: @yield('bg_color', 'Cornsilk')">
     <div id="app">
         @yield('navbar')
-
-        @include('layouts.navbar')
 
         <main class="py-4">
             @yield('content')
