@@ -52,7 +52,7 @@
                 </li>
             </ul>
             <div class="d-flex ms-4">
-                <a href="http://" class="btn btn-outline-dark rounded-full px-3">{{ __('Login') }}</a>
+                <a href="{{ route('login') }}" class="btn btn-outline-dark rounded-full px-3">Login</a>
             </div>
         </div>
     </div>

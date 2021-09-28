@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             GNDseeder::class,
             MOHseeder::class,
             DBseeder::class, //only for dev
+            RoleSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

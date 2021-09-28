@@ -55,7 +55,7 @@ Now open your .env file and config MySQL database.
 Run migrations.
 
 ```ps
-php artisan migrate
+php artisan migrate --seed
 ```
 
 Run the application.
