@@ -17,10 +17,12 @@ class CreateVaccineBatchesTable extends Migration
             $table->id();
             $table->string('batch_no', 50);
             $table->bigInteger('vaccine_id')->unsigned();
-            $table->date('manufacrured_date');
+            $table->string('vaccine_type', 50);
+            $table->date('manufactured_date');
             $table->date('expiration_date');
             $table->integer('initial_quantity');
             $table->integer('current_quantity');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

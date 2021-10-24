@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             DBseeder::class, //only for dev
             RoleSeeder::class,
             UserSeeder::class,
+            VaccineSeeder::class,
         ]);
     }
 }
