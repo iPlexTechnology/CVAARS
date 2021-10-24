@@ -16,9 +16,11 @@ class CreateVaccineAllocationsTable extends Migration
         Schema::create('vaccine_allocations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('dose_batch_id')->unsigned();
-            $table->bigInteger('vaccination_center_id')->unsigned();
+            $table->bigInteger('vaccination_center_id')->unsigned()->default(0);
+            $table->bigInteger('moh_division_id')->unsigned()->default(0);
             $table->integer('allocated_quantity');
             $table->integer('remaining_quantity');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

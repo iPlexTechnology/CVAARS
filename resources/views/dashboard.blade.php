@@ -29,7 +29,8 @@
                     Types</a>
                 <a href="{{ route('vaccine-batches.index') }}" class="btn btn-outline-dark rounded-pill ms-4">Vaccine
                     Batches</a>
-                <a href="#" class="btn btn-outline-dark rounded-pill ms-4">Vaccine Allocations</a>
+                <a href="{{ route('vaccine-allocations.index') }}"
+                    class="btn btn-outline-dark rounded-pill ms-4">Vaccine Allocations</a>
             </div>
 
             <div class="d-grid gap-2 mt-5">

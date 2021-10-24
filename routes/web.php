@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CitizenRecordController;
+use App\Http\Controllers\VaccineAllocationController;
 use App\Http\Controllers\VaccineBatchController;
 use App\Http\Controllers\VaccineTypeController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::view('dashboard', 'dashboard')->name('home');
     Route::resource('vaccine-types', VaccineTypeController::class);
     Route::resource('vaccine-batches', VaccineBatchController::class);
+    Route::resource('vaccine-allocations', VaccineAllocationController::class);
 });
 
 Route::group(['prefix' => '{language}'], function () {

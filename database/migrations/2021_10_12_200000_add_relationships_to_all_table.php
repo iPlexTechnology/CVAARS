@@ -33,6 +33,7 @@ class AddRelationshipsToAllTable extends Migration
         Schema::table('vaccine_allocations', function (Blueprint $table) {
             $table->foreign('dose_batch_id')->references('id')->on('vaccine_batches');
             $table->foreign('vaccination_center_id')->references('id')->on('vaccination_centers');
+            $table->foreign('moh_division_id')->references('id')->on('moh_divisions');
         });
 
         Schema::table('residential_areas', function (Blueprint $table) {
