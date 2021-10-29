@@ -7,7 +7,7 @@
     "The nation’s top health care organizations agree COVID 19 vaccines are safe and effective": "කෝවිඩ් එන්නත ඵලදායී හා ආරක්ශාකාරී බවට දේශයේ ප්‍රමුඛම සෞක්‍ය සංවිධාන මගින් සනාත කොට ඇත",
     "Current Vaccination updates": "නවතම එන්නත්කරණ තොරතුරු",
     "See full vaccination plan": "සම්පූර්ණ එන්නත්කරන සැලසුම බලන්න",
-    "total vaccinated count": "එන්නත්කර ඇති මුලු ගණන",
+    "Total Vaccinated Count": "එන්නත්කර ඇති මුලු ගණන",
     "First Name": "මුල් නම",
     "Last Name": "අවසාන නම",
     "NIC no": "ජා.හැ.ප. අංකය",
@@ -59,9 +59,6 @@
     "We could not verify this NIC number.": "",
     "Registration Completed. You will receive a confirmation email.": "",
     "": "",
-
-
-
 
     "Åland Islands": "Åland Islands"
 }

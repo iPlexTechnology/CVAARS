@@ -34,8 +34,7 @@
 
                 <div class="clearfix mb-3">
                     <button type="submit" class="btn btn-sm rounded-full btn-success float-end"><i
-                            class="bi bi-plus-circle"></i> Add
-                        the Vaccine Batch</button>
+                            class="bi bi-plus-circle"></i> Allocate Vaccines</button>
                 </div>
                 @include('components.error_message')
             </form>

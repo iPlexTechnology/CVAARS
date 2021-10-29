@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GNDseeder::class,
             MOHseeder::class,
-            DBseeder::class, //only for dev
+            //DBseeder::class, //only for dev
             RoleSeeder::class,
             UserSeeder::class,
             VaccineSeeder::class,

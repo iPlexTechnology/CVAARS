@@ -14,4 +14,19 @@ class CitizenRecord extends Model
     protected $keyType = 'string';
 
     protected $guarded = [];
+
+    public function getMOHArea()
+    {
+        return $this->hasOne('App\Models\MohDivision', 'id', 'moh_division_id');
+    }
+
+    public function getGramaNiladhariDivision()
+    {
+        return $this->hasOne('App\Models\GramaNiladhariDivision', 'id', 'grama_niladhari_division_id');
+    }
+
+    public function getPendingVaccination()
+    {
+        return $this->hasOne('App\Models\ReadyForVaccination', 'nic', 'nic');
+    }
 }

@@ -19,8 +19,8 @@ class CreateVaccinatedRecordsTable extends Migration
             $table->bigInteger('dose_batch_id')->unsigned();
             $table->date('vaccinated_date');
             $table->bigInteger('vaccination_center_id')->unsigned();
-            $table->string('dose_count', 2);
-            $table->boolean('post_symptoms')->default(0);
+            $table->integer('dose_count')->default(0);
+            $table->text('post_symptoms')->nullable();
             $table->timestamps();
         });
     }

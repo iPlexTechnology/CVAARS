@@ -6,6 +6,13 @@
 @include('layouts.navbar-main')
 @endsection
 
+@push('styles')
+<style>
+    div::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+@endpush
 
 @section('content')
 <div class="container">
@@ -22,7 +29,8 @@
             <div class="text-center mx-auto mt-4">
 
                 <p class="fs-5 fw-500">
-                    {{ __('The nation’s top health care organizations agree COVID 19 vaccines are safe and effective') }}
+                    {{ __('The nation’s top health care organizations agree COVID 19 vaccines are safe and effective')
+                    }}
                 </p>
 
                 <p class="font-bold fs-3">{{ __('Still not vaccinated?') }}</p>
@@ -33,17 +41,7 @@
         </div>
         @endif
         {{-- <div class="col-md-2"></div> --}}
-        <div class="col-md-4 mt-5">
-            <div class="bg-white rounded-2xl p-3" style="width: auto; height: 27rem">
-                <p class="text-pink-600 fs-5 font-bold">{{ __('Current Vaccination updates') }}</p>
-            </div>
-            <div class="mt-2 mb-1 clearfix">
-                <a href="#"
-                    class="btn btn-sm btn-outline-dark rounded-full float-end">{{ __('See full vaccination plan') }}</a>
-            </div>
-            <p class="text-dark font-bold text-right mb-0">{{ __('total vaccinated count') }}</p>
-            <p class="text-red-600 fs-1 font-bold text-right">10,234,132</p>
-        </div>
+        @livewire('notices')
     </div>
 
 

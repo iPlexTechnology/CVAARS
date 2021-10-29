@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\VaccineAllocation;
 use App\Models\VaccineBatch;
 use App\Models\VaccineType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class VaccineBatchController extends Controller
 {
@@ -15,7 +17,7 @@ class VaccineBatchController extends Controller
      */
     public function index()
     {
-        $vaccine_batches = VaccineBatch::all();
+        $vaccine_batches = VaccineBatch::paginate(50);
         return view('pages.vaccine-batches', compact('vaccine_batches'));
     }
 
@@ -26,6 +28,7 @@ class VaccineBatchController extends Controller
      */
     public function create()
     {
+        abort_unless((Gate::any(['ad', 'hm'])), 404);
         $vaccine_types = VaccineType::all(['id', 'name', 'manufactured_country']);
         return view('pages.add-vaccine-batch', compact('vaccine_types'));
     }
@@ -38,6 +41,7 @@ class VaccineBatchController extends Controller
      */
     public function store(Request $request)
     {
+        abort_unless((Gate::any(['ad', 'hm'])), 404);
         $request->validate([
             'batch_no' => 'bail|required|alpha_dash|max:100',
             'vaccine_id' => 'bail|required|exists:vaccine_types,id',
@@ -72,7 +76,8 @@ class VaccineBatchController extends Controller
      */
     public function show(VaccineBatch $vaccineBatch)
     {
-        //
+        $allocations = VaccineAllocation::where('dose_batch_id', $vaccineBatch->id)->with('getVaccinationCenter')->get();
+        return view('pages.show-vaccine-batch', compact('vaccineBatch', 'allocations'));
     }
 
     /**

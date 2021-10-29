@@ -15,7 +15,8 @@ class CreateResidentialAreasTable extends Migration
     {
         Schema::create('residential_areas', function (Blueprint $table) {
             $table->id();
-            $table->string('nic', 12);
+            $table->string('nic', 12)->unique();
+            $table->string('name', 100)->nullable();
             $table->bigInteger('grama_niladhari_division_id')->unsigned();
             $table->bigInteger('moh_division_id')->unsigned();
             $table->timestamps();

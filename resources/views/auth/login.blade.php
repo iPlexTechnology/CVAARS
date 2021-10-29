@@ -41,8 +41,8 @@
                             <label for="email" class="form-label"><i class="bi bi-envelope-fill"></i>
                                 Email</label>
                             <input type="text" class="form-control rounded-full @error('email') is-invalid @enderror"
-                                id="email" name="email" value="{{ 'admin@cvaars.com' ?? old('email') }}" required
-                                autocomplete="email" autofocus>
+                                id="email" name="email" value="{{ old('email') }}" required autocomplete="email"
+                                autofocus>
                         </div>
 
                         <div class="mb-3">
@@ -50,8 +50,7 @@
                                 Password</label>
                             <input type="password"
                                 class="form-control rounded-full @error('email') is-invalid @enderror" id="password"
-                                name="password" value="{{ 'admin@cvaars.com' ?? old('password') }}" required
-                                autocomplete="password">
+                                name="password" :value="{{ old('password') }}" required autocomplete="password">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

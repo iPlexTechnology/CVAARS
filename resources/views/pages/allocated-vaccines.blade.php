@@ -23,52 +23,43 @@
 
         <p class="fw-bold display-6">Vaccine Allocations</p>
 
+        @canany(['ad', 'hm'])
         <a href="{{ route('vaccine-allocations.create') }}" class="btn btn-success rounded-full"> Allocate
             Vaccines</a>
+        @endcan
 
         <div class="mt-3">
             @include('components.error_message')
         </div>
 
         <div class="mt-3">
+            {{ $vaccine_allocations->links() }}
             <table class="table table-auto">
                 <thead>
                     <tr>
-                        <th>Batch No</th>
                         <th>Vaccine Type</th>
-                        <th>MFD. Date</th>
-                        <th>EXP. Date</th>
-                        <th>Initial Qty.</th>
+                        <th>Batch No</th>
+                        <th>Vaccination Center</th>
+                        <th>Allocated Qty.</th>
                         <th>Remaining Qty.</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Allocated On</th>
+                        {{-- <th></th> --}}
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($vaccine_batches as $vaccine_batch)
+                    @foreach ($vaccine_allocations as $vaccine_allocation)
                     <tr>
-                        <td>{{ $vaccine_batch->batch_no }}</td>
-                        <td>{{ $vaccine_batch->vaccine_type }}</td>
-                        <td>{{ $vaccine_batch->manufactured_date }}</td>
-                        <td>{{ $vaccine_batch->expiration_date }}</td>
-                        <td>{{ $vaccine_batch->initial_quantity }}</td>
-                        <td>{{ $vaccine_batch->current_quantity }}</td>
-                        <td>
-                            <a href="#" class="btn btn-success btn-sm"><i class="bi bi-eye"></i></a>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
-                        </td>
-                        <td>
-                            <form action="{{ route('vaccine-batches.destroy', $vaccine_batch->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
-                            </form>
-                        </td>
+                        <td>{{ $vaccine_allocation->getVaccineBatch->vaccine_type }}</td>
+                        <td>{{ $vaccine_allocation->getVaccineBatch->batch_no }}</td>
+                        <td>{{ $vaccine_allocation->getVaccinationCenter->center_name }}</td>
+                        <td>{{ $vaccine_allocation->allocated_quantity }}</td>
+                        <td>{{ $vaccine_allocation->remaining_quantity }}</td>
+                        <td>{{ $vaccine_allocation->created_at->toDateString() }}</td>
+                        {{-- <td>
+                            <a href="#" class="btn btn-success btn-sm"><i class="bi bi-eye"></i> View</a>
+                        </td> --}}
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>

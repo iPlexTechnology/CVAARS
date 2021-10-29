@@ -20,7 +20,9 @@ class CreateCitizenRecordsTable extends Migration
             $table->string('email', 50)->unique();
             $table->string('phone', 15);
             $table->date('birthday');
-            $table->integer('dose_recived')->default(0);
+            $table->integer('dose_received')->default(0);
+            // $table->date('next_dose_receiving_date')->nullable();
+            // $table->time('next_dose_receiving_time')->nullable();
             $table->string('province', 50);
             $table->string('district', 50);
             $table->bigInteger('moh_division_id')->unsigned();

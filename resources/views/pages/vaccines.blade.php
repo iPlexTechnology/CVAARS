@@ -23,9 +23,11 @@
 
         <p class="fw-bold display-6">Vaccine Types</p>
 
+        @canany(['ad', 'hm'])
         <a href="{{ route('vaccine-types.create') }}" class="btn btn-success rounded-full"><i
                 class="bi bi-plus-circle"></i> Add a
             Vaccine Type</a>
+        @endcan
 
         <div class="mt-3">
             @include('components.error_message')
@@ -39,8 +41,6 @@
                         <th>Manufactured country</th>
                         <th>Technology</th>
                         <th>Next dose duration</th>
-                        <th></th>
-                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -58,17 +58,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="#" class="btn btn-success btn-sm"><i class="bi bi-eye"></i></a>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
-                        </td>
-                        <td>
-                            <form action="{{ route('vaccine-types.destroy', $vaccine->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
-                            </form>
+                            <a href="{{ route('vaccine-types.show', $vaccine->id) }}" class="btn btn-success btn-sm"><i
+                                    class="bi bi-eye"></i> View</a>
                         </td>
                     </tr>
                     @endforeach

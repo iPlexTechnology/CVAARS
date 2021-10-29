@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\VaccineBatch;
 use App\Models\VaccineType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class VaccineTypeController extends Controller
 {
@@ -26,6 +27,7 @@ class VaccineTypeController extends Controller
      */
     public function create()
     {
+        abort_unless((Gate::any(['ad', 'hm'])), 404);
         return view('pages.add-vaccine');
     }
 
@@ -37,6 +39,7 @@ class VaccineTypeController extends Controller
      */
     public function store(Request $request)
     {
+        abort_unless((Gate::any(['ad', 'hm'])), 404);
         $request->validate([
             'vaccine_name' => 'bail|required|string|max:100',
             'manufactured_country' => 'bail|required|string|max:100',
@@ -65,7 +68,18 @@ class VaccineTypeController extends Controller
      */
     public function show(VaccineType $vaccineType)
     {
-        //
+        $batches = VaccineBatch::where('vaccine_id', $vaccineType->id)->get();
+
+        $total = 0;
+        $remain = 0;
+
+        foreach ($batches as $key => $batch) {
+            $total += $batch->initial_quantity;
+            $remain += $batch->current_quantity;
+        }
+
+        // dd($batches);
+        return view('pages.show-vaccine', compact('vaccineType', 'total', 'remain'));
     }
 
     /**
