@@ -17,6 +17,7 @@ class CreateVaccinationCentersTable extends Migration
             $table->id();
             $table->string('center_name', 50);
             $table->bigInteger('moh_division_id')->unsigned();
+            $table->bigInteger('grama_niladhari_division_id')->unsigned();
             $table->string('head_person', 100);
             $table->timestamps();
         });

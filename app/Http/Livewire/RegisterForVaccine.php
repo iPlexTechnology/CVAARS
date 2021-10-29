@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\RegisteredForVaccination;
 use App\Models\CitizenRecord;
 use App\Models\ResidentialArea;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 use function PHPUnit\Framework\isEmpty;
@@ -62,7 +65,7 @@ class RegisterForVaccine extends Component
 
         $person = ResidentialArea::where('nic', $this->nic)->first();
         if ($person == null) return back()->with('error', 'We could not verify this NIC number.');
-
+        DB::beginTransaction();
         try {
             CitizenRecord::create([
                 'name' => $this->first_name . ' ' . $this->last_name,
@@ -76,7 +79,15 @@ class RegisterForVaccine extends Component
                 'moh_division_id' => $person->moh_division_id,
                 'grama_niladhari_division_id' => $person->grama_niladhari_division_id,
             ]);
+
+            $body = [
+                'name' => $this->first_name . ' ' . $this->last_name,
+            ];
+            Mail::to($this->email)->send(new RegisteredForVaccination($body));
+
+            DB::commit();
         } catch (\Throwable $th) {
+            DB::rollback();
             return back()->with('error', 'Something went wrong. Please contact our support team.');
         }
 

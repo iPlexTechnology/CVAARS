@@ -19,6 +19,7 @@ class CreateVaccineTypesTable extends Migration
             $table->string('manufactured_country', 50);
             $table->string('technology', 50);
             $table->string('next_dose_duration_in_weeks', 2)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

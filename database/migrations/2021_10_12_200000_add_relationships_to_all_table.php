@@ -18,7 +18,7 @@ class AddRelationshipsToAllTable extends Migration
 
         Schema::table('citizen_records', function (Blueprint $table) {
             $table->foreign('moh_division_id')->references('id')->on('moh_divisions');
-            $table->foreign('grama_niladhari_division_id')->references('id')->on('grama_niladhari_devisions');
+            $table->foreign('grama_niladhari_division_id')->references('id')->on('grama_niladhari_divisions');
         });
 
         Schema::table('vaccinated_records', function (Blueprint $table) {
@@ -28,16 +28,22 @@ class AddRelationshipsToAllTable extends Migration
 
         Schema::table('vaccination_centers', function (Blueprint $table) {
             $table->foreign('moh_division_id')->references('id')->on('moh_divisions');
+            $table->foreign('grama_niladhari_division_id')->references('id')->on('grama_niladhari_divisions');
         });
 
         Schema::table('vaccine_allocations', function (Blueprint $table) {
             $table->foreign('dose_batch_id')->references('id')->on('vaccine_batches');
             $table->foreign('vaccination_center_id')->references('id')->on('vaccination_centers');
+            // $table->foreign('moh_division_id')->references('id')->on('moh_divisions');s
         });
 
         Schema::table('residential_areas', function (Blueprint $table) {
-            $table->foreign('grama_niladhari_division_id')->references('id')->on('grama_niladhari_devisions');
+            $table->foreign('grama_niladhari_division_id')->references('id')->on('grama_niladhari_divisions');
             $table->foreign('moh_division_id')->references('id')->on('moh_divisions');
+        });
+
+        Schema::table('ready_for_vaccinations', function (Blueprint $table) {
+            $table->foreign('vaccine_center_id')->references('id')->on('vaccination_centers');
         });
     }
 }

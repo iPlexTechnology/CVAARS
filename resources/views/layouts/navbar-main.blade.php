@@ -30,7 +30,7 @@
             </ul>
             @auth
             <div class="d-flex ms-4">
-                <a href="{{ route('home') }}" class="btn btn-outline-dark rounded-full px-3">Home</a>
+                <a href="{{ route('home') }}" class="btn btn-outline-dark rounded-full px-3">Dashboard</a>
             </div>
             @else
             <div class="d-flex ms-4">

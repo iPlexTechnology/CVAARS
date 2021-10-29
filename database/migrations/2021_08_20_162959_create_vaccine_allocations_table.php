@@ -19,6 +19,7 @@ class CreateVaccineAllocationsTable extends Migration
             $table->bigInteger('vaccination_center_id')->unsigned();
             $table->integer('allocated_quantity');
             $table->integer('remaining_quantity');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

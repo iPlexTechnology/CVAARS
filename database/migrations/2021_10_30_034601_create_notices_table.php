@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGramaNiladhariDevisionsTable extends Migration
+class CreateNoticesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateGramaNiladhariDevisionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('grama_niladhari_devisions', function (Blueprint $table) {
+        Schema::create('notices', function (Blueprint $table) {
             $table->id();
-            $table->string('grama_niladhari_division', 50);
+            $table->text('english')->nullable();
+            $table->text('sinhala')->nullable();
+            $table->text('tamil')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateGramaNiladhariDevisionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grama_niladhari_devisions');
+        Schema::dropIfExists('notices');
     }
 }
