@@ -23,7 +23,7 @@ class FakeDataSeeder extends Seeder
         VaccineBatch::factory()->count(200)->create();
         VaccinationCenter::factory()->count(100)->create();
         VaccineAllocation::factory()->count(100)->create();
-        ResidentialArea::factory()->count(100000)->create();
         Notice::factory()->count(10)->create();
+        ResidentialArea::factory()->count(10000)->create();
     }
 }
