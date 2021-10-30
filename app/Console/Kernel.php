@@ -27,6 +27,10 @@ class Kernel extends ConsoleKernel
         $schedule->command('command:SendFirstVaccinationDate')->dailyAt("00:30");
         $schedule->command('command:SendSecondVaccinationDate')->dailyAt("00:30");
         $schedule->command('command:VaccineDateRemind')->dailyAt("00:30");
+
+        // $schedule->command('command:SendFirstVaccinationDate');
+        // $schedule->command('command:SendSecondVaccinationDate');
+        // $schedule->command('command:VaccineDateRemind');
     }
 
     /**
