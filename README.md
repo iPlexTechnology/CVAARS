@@ -1,6 +1,17 @@
+
+# Demo
+
+Demo of this application can view at 
+https://cvaars.herokuapp.com
+
+- **username**: ``admin@cvaars.com``
+- **password**: ``admin@cvaars.com``
+
 # **CVAARS Project**
 
 #### Follow this instructions to setup this project on your local computer.
+
+
 
 ### Pre-Requirements
 
